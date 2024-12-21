@@ -68,12 +68,10 @@ on getJpeg()
 			end try
 		end tell
 		
-		-- Simplified variant name collection
 		repeat with i in selecVars
 			set fullList to fullList & (name of i) & ".jpg" & return
 		end repeat
 	end tell
-	log "fullList : " & fullList
 end getJpeg
 
 on ProcessJpeg()

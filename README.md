@@ -2,6 +2,8 @@
 
 AirDropC1 is an AppleScript that allows you to quickly AirDrop selected images from Capture One. It automatically exports the selected variants and opens AirDrop to share them.
 
+This script have been tested on osX Sonoma 14.4.1 and Capture One Pro 16.5.3.1.
+
 ## Prerequisites
 
 - macOS Monterey (12.00) or later

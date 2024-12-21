@@ -21,7 +21,7 @@ property outputSubFolder : "AIRDROPED_JPEG"
 property jpegQuality : 85
 property longEdgeSize : 1920
 
--- Global variables (kept for compatibility)
+-- Global variables
 global selecVars, currentDocument, outputFiles, rootFolder, fullList, AirDropRecipe
 
 set outputFiles to {}

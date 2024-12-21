@@ -12,7 +12,7 @@
 -- Note: The script won't work without this shortcut installed
 ------------------------------------------
 
-use AppleScript version "2.6" -- Catalina (10.15) or later
+use AppleScript version "2.7" -- Monterey (12.0) or later
 use framework "Foundation"
 use scripting additions
 

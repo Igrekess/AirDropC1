@@ -142,13 +142,11 @@ on AirdropFilesWithShortcut()
 	
 	-- Wait for user to choose a recipient or cancel
 	tell application "System Events"
-		set timeoutCount to 0
 		repeat
 			if not (exists (window 1 of process "Finder" whose name is "AirDrop")) then
 				exit repeat
 			end if
 			delay 0.1
-			set timeoutCount to timeoutCount + 1
 		end repeat
 	end tell
 	

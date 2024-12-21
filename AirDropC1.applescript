@@ -46,7 +46,6 @@ end try
 --···············································································································
 
 on getJpeg()
-	log "Start getJpeg()"
 	tell application "Capture One"
 		set rootFolder to folder of current document
 		set selecVars to (get selected variants)
@@ -79,12 +78,10 @@ on getJpeg()
 end getJpeg
 
 on ProcessJpeg()
-	log "Start ProcessJpeg"
 	tell application "Capture One"
 		tell currentDocument to set rflAlias to its output
 		set rfl to POSIX path of rflAlias
 		set rfl to rfl & AirDropRecipe's output sub folder & "/"
-		log "rfl : " & rfl
 		
 		repeat with v in selecVars
 			set outputFileName to rfl & v's name & ".jpg"
@@ -102,12 +99,10 @@ on ProcessJpeg()
 			end try
 			
 			copy outputFileName to end of outputFiles
-			log "OutputFiles : " & outputFiles
 		end repeat
 	end tell
 	
 	tell application "System Events"
-		log "start system events loop"
 		repeat with f in outputFiles
 			repeat while not (exists file f)
 				delay 0.1 -- Reduced delay time for better performance if your computer is fast enough
@@ -118,10 +113,7 @@ on ProcessJpeg()
 end ProcessJpeg
 
 on AirdropFilesWithShortcut()
-	log "Start AirdropFilesWithShortcut"
-	
 	set finderWindow to missing value
-	
 	tell application "Finder"
 		activate
 		

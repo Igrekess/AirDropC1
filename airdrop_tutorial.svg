@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+    <!-- Background -->
+    <rect width="800" height="800" fill="#f5f5f7"/>
+    
+    <!-- Title -->
+    <text x="400" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1d1d1f">
+        How to Turn On AirDrop
+    </text>
+
+    <!-- MacBook Instructions -->
+    <g transform="translate(50, 90)">
+        <rect x="0" y="0" width="700" height="230" rx="10" fill="#ffffff" stroke="#e5e5e5"/>
+        <text x="350" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1d1d1f">
+            On MacBook:
+        </text>
+        <!-- Method 1 -->
+        <text x="20" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1d1d1f">Method 1: Control Center</text>
+        <text x="40" y="95" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">1. Click Control Center in the menu bar</text>
+        <text x="40" y="120" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">2. Click AirDrop</text>
+        <text x="40" y="145" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">3. Choose "Everyone"</text>
+
+        <!-- Method 2 -->
+        <text x="20" y="175" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1d1d1f">Method 2: Finder</text>
+        <text x="40" y="200" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">1. Open Finder > Go > AirDrop (or press ⇧⌘R)</text>
+    </g>
+
+    <!-- iPhone Instructions -->
+    <g transform="translate(50, 350)">
+        <rect x="0" y="0" width="700" height="230" rx="10" fill="#ffffff" stroke="#e5e5e5"/>
+        <text x="350" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1d1d1f">
+            On iPhone/iPad:
+        </text>
+        <!-- Steps -->
+        <text x="20" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1d1d1f">From Control Center</text>
+        <text x="40" y="95" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">1. Open Control Center (swipe down from top-right corner)</text>
+        <text x="40" y="120" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">2. Press and hold the network settings card</text>
+        <text x="40" y="145" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">3. Press and hold the AirDrop button</text>
+        <text x="40" y="170" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">4. Choose "Everyone" (for 10 minutes) or "Everyone" (unlimited time)</text>
+    </g>
+
+    <!-- Requirements -->
+    <g transform="translate(50, 610)">
+        <rect x="0" y="0" width="700" height="140" rx="10" fill="#ffffff" stroke="#e5e5e5"/>
+        <text x="350" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1d1d1f">
+            Requirements
+        </text>
+        <!-- List -->
+        <text x="20" y="70" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">• Wi-Fi and Bluetooth must be turned on</text>
+        <text x="20" y="95" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">• Devices must be within 30 feet (9 meters) of each other</text>
+        <text x="20" y="120" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">• For Mac: OS X Yosemite or later, 2012 or newer model</text>
+    </g>
+</svg>

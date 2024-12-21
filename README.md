@@ -4,7 +4,7 @@ AirDropC1 is an AppleScript that allows you to quickly AirDrop selected images f
 
 ## Prerequisites
 
-- macOS Catalina (10.15) or later
+- macOS Monterey (12.00) or later
 - Capture One
 - Shortcuts app installed
 

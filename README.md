@@ -93,7 +93,6 @@ The script uses the following export settings:
 ## Credits
 
 Created by Yan Senez  
-Copyright © 2025 Yan Senez Photographie
 
 ## License
 

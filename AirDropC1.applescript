@@ -17,7 +17,7 @@ use scripting additions
 
 -- Constants
 property recipeName : "AIRDROP"
-property outputSubFolder : "AIRDROPED_JPEG"
+property outputSubFolder : "AIRDROPPED_JPEG"
 property jpegQuality : 85
 property longEdgeSize : 1920
 

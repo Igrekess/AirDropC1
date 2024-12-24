@@ -63,7 +63,7 @@ on getJpeg()
 				
 			on error
 				-- Create AIRDROP recipe if not exist
-				set AirDropRecipe to make new recipe with properties {name:recipeName, output format:JPEG, JPEG quality:jpegQuality, color profile:"sRGB Color Space Profile", pixels per inch:96, export crop method:respect, ignore crop:false, include annotations:true, include Camera Metadata:true, include copyright:true, root folder type:output location, output sub folder:outputSubFolder, sharpening:for screen, sharpening amount:60.0, sharpening distance:100.0, sharpening distance type:percent of diagonal, sharpening radius:0.600000023842, sharpening threshold:0.0, thumbnails:false}
+				set AirDropRecipe to make new recipe with properties {name:recipeName, output format:JPEG_QuickProof, color profile:"sRGB Color Space Profile", pixels per inch:96, export crop method:respect, ignore crop:false, include annotations:true, include Camera Metadata:true, include copyright:true, root folder type:output location, output sub folder:outputSubFolder, sharpening:for screen, sharpening amount:60.0, sharpening distance:100.0, sharpening distance type:percent of diagonal, sharpening radius:0.600000023842, sharpening threshold:0.0, thumbnails:false}
 				tell AirDropRecipe to set {its enabled, its scaling method, its scaling unit, its primary scaling value} to {false, Long_Edge, pixels, longEdgeSize}
 			end try
 		end tell

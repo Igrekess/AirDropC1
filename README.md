@@ -52,7 +52,7 @@ This script have been tested on Sonoma 14.4.1 and Capture One Pro 16.5.3.1.
 
 - Automatically creates an export recipe if it doesn't exist
 - Exports to JPEG format with optimal settings for sharing
-- Uses the "AIRDROPED_JPEG" subfolder to keep your exports organized
+- Uses the "AIRDROPPED_JPEG" subfolder to keep your exports organized
 - Quick return to Capture One after sharing
 - Handles user cancellation gracefully
 

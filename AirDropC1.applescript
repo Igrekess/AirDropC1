@@ -162,7 +162,7 @@ on AirdropFilesWithShortcut()
 	try
     		quit application "Shortcuts"
     	on error errMsg number errNum
-    		log "Errr closing Shortcuts.app : " & errMsg
+    		log "Error closing Shortcuts.app : " & errMsg
 	end try
 
 	tell application "Capture One" to activate

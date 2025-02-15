@@ -1,3 +1,5 @@
+<img src="AirdropC1.png" alt="Airdrop C1 logo" width="95"/>
+
 # AirDropC1
 
 AirDropC1 is an AppleScript that allows you to quickly AirDrop selected images from Capture One. It automatically exports the selected variants and opens AirDrop to share them.

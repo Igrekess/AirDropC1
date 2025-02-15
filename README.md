@@ -1,4 +1,4 @@
-<img src="AirdropC1.png" alt="Airdrop C1 logo" width="95"/>
+<img src="airdropC1.png" alt="Airdrop C1 logo" width="95"/>
 
 # AirDropC1
 

@@ -22,10 +22,11 @@ property jpegQuality : 85
 property longEdgeSize : 1920
 
 -- Global variables
-global selecVars, currentDocument, outputFiles, rootFolder, fullList, AirDropRecipe
+global selecVars, currentDocument, outputFiles, rootFolder, fullList, AirDropRecipe, fileExtension
 
 set outputFiles to {}
 set fullList to ""
+set fileExtension to ".jpg"
 
 --···············································································································
 -- PROCESS
@@ -58,43 +59,60 @@ on getJpeg()
 		tell currentDocument
 			try
 				set AirDropRecipe to recipe recipeName
-				set AirDropRecipe's root folder type to output location
-				set AirDropRecipe's output sub folder to outputSubFolder
-				
+				-- Ne pas modifier root folder type pour préserver l'export location personnalisé
+
 			on error
 				-- Create AIRDROP recipe if not exist
 				set AirDropRecipe to make new recipe with properties {name:recipeName, output format:JPEG_QuickProof, color profile:"sRGB Color Space Profile", pixels per inch:96, export crop method:respect, ignore crop:false, include annotations:true, include Camera Metadata:true, include copyright:true, root folder type:output location, output sub folder:outputSubFolder, sharpening:for screen, sharpening amount:60.0, sharpening distance:100.0, sharpening distance type:percent of diagonal, sharpening radius:0.600000023842, sharpening threshold:0.0, thumbnails:false}
 				tell AirDropRecipe to set {its enabled, its scaling method, its scaling unit, its primary scaling value} to {false, Long_Edge, pixels, longEdgeSize}
 			end try
 		end tell
-		
+
+		-- Déterminer l'extension en fonction du format d'export
+		set recipeFormat to output format of AirDropRecipe
+		set fileExtension to my getExtensionForFormat(recipeFormat)
+
 		repeat with i in selecVars
-			set fullList to fullList & (name of i) & ".jpg" & return
+			set fullList to fullList & (name of i) & fileExtension & return
 		end repeat
 	end tell
 end getJpeg
 
 on ProcessJpeg()
 	tell application "Capture One"
-		tell currentDocument to set rflAlias to its output
+		-- Récupérer le chemin d'export depuis la recette
+		set recipeRootType to AirDropRecipe's root folder type
+		if recipeRootType is output location then
+			tell currentDocument to set rflAlias to its output
+		else
+			set rflAlias to AirDropRecipe's root folder location
+		end if
 		set rfl to POSIX path of rflAlias
-		set rfl to rfl & AirDropRecipe's output sub folder & "/"
+		set recipeSubFolder to AirDropRecipe's output sub folder
+		if recipeSubFolder is not "" then
+			set rfl to rfl & recipeSubFolder & "/"
+		end if
 		
 		repeat with v in selecVars
-			set outputFileName to rfl & v's name & ".jpg"
-			
+			set outputFileName to rfl & v's name & fileExtension
+
 			try
 				tell application "System Events" to if (exists file outputFileName) then delete file outputFileName
 				set outputResult to process v recipe recipeName
 			on error errMsg number errNum
 				if errNum is -43 then -- invalid output location
-					set AirDropRecipe's root folder location to file rootFolderLocation
+					set AirDropRecipe's root folder location to rootFolder
+					set rfl to POSIX path of (rootFolder as alias)
+					if recipeSubFolder is not "" then
+						set rfl to rfl & recipeSubFolder & "/"
+					end if
+					set outputFileName to rfl & v's name & fileExtension
 					set outputResult to process v recipe recipeName
 				else
 					error errMsg number errNum
 				end if
 			end try
-			
+
 			copy outputFileName to end of outputFiles
 		end repeat
 	end tell
@@ -167,3 +185,29 @@ on AirdropFilesWithShortcut()
 
 	tell application "Capture One" to activate
 end AirdropFilesWithShortcut
+
+on getExtensionForFormat(outputFormat)
+	-- Convertir le format en texte pour la comparaison
+	set formatStr to outputFormat as text
+
+	if formatStr contains "JPEG" then
+		return ".jpg"
+	else if formatStr contains "TIFF" then
+		return ".tif"
+	else if formatStr contains "PNG" then
+		return ".png"
+	else if formatStr contains "PSD" then
+		return ".psd"
+	else if formatStr contains "DNG" then
+		return ".dng"
+	else if formatStr contains "HEIF" or formatStr contains "HEIC" then
+		return ".heic"
+	else if formatStr contains "AVIF" then
+		return ".avif"
+	else if formatStr contains "WebP" then
+		return ".webp"
+	else
+		-- Fallback par défaut
+		return ".jpg"
+	end if
+end getExtensionForFormat
